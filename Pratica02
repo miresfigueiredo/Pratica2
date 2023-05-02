@@ -1,0 +1,38 @@
+from flask import Flask
+
+app = Flask(__name__)
+
+@app.route('/')
+def index():
+    return '''
+    <a href="/sobre">Sobre</a>
+    <a href="/experiencia">Experiencia</a>
+    <a href="/formacao">Formação</a>
+    <a href="/contatos">Contatos</a>
+    '''
+
+#- página sobre eu
+@app.route('/sobre')
+def sobre():
+    return "<h1>Sobre Mim</h1><p>Nascido em Cedro- Ceará, 26 anos, estudante de Sistemas de Informação.</p>"
+
+
+#página com minha experiência profissional
+@app.route('/experiencia')
+def experiencia():
+    return  "<h1>Experiência Profissional</h1><ul><li><h4>Laboratorio (Estágio na EMEF Antonieta Jucá Marques, Período 14/07/2014 - 15/12/2014)</h4></li><li><h4>Vendedora (Loja TokCell e Acessórios, 2021 - 5 meses)</h4></li></ul>"
+
+#página com sua formação acadêmica
+@app.route('/formacao')
+def formacao():
+    return "<h1>Formação</h1><ul><li><h4>Técnico em Redes de Computadores. E.E.E.P. Francisca de Albuquerque Moura, conclusão em 2014</h4></li><li><h4>Graduação em Sistemas de Informação. Instituto Federal do Ceará, previsão de conclusão em 2024</h4></li></ul><h2>Qualificações e Atividades Complementares</h2><ul><li><h5>Curso Crescendo e Empreendendo (SEBRAE, 2012)</h5></li><li><h5>Curso Oficina Plano de Négocio (SEBRAE, 2012)</h5></li><li><h5>Curso Iniciando um Pequeno Grande Negócio (SEBRAE, 2012)</h5></li><li><h5>Curso Informática Básica e Linux Básico (CENTRO DE INCLUSÃO DIGITAL - IFCE Campus Cedro, 2015)</h5></li></ul>"
+
+
+#página com meus contatos
+@app.route('/contatos')
+def contato():
+    return "<p><h1>Meus contatos :</h1></p><p>Email: ana.mires.vieira04@aluno.ifce.edu.br</p><p>Telefone: (88)994046044</p>"
+
+
+if __name__ =="__main__":
+    app.run(debug=True)
